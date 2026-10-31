@@ -1,0 +1,17 @@
+<Project>
+    <PropertyGroup>
+        <LeptonBaseVersion Condition="'$(LeptonBaseVersion)' == ''">1.0.0</LeptonBaseVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <StandardBuildValue Include="Lepton.BaseVersion" Value="$(LeptonBaseVersion)" />
+        <StandardBuildValue Include="Lepton.Type" EnvironmentVariable="LEPTON_BUILD_TYPE" />
+        <StandardBuildValue Include="Lepton.Version" EnvironmentVariable="LEPTON_BUILD_VERSION" />
+        <StandardBuildValue Include="Lepton.BuildTime" EnvironmentVariable="LEPTON_BUILD_TIME" />
+        <StandardBuildValue Include="Lepton.Action" EnvironmentVariable="LEPTON_BUILD_ACTION" />
+        <StandardBuildValue Include="Lepton.Commit" EnvironmentVariable="LEPTON_BUILD_COMMIT" />
+        <StandardBuildValue Include="Lepton.Timestamp" EnvironmentVariable="LEPTON_BUILD_TIMESTAMP" />
+        <StandardBuildValue Include="Lepton.VersionTitle" EnvironmentVariable="LEPTON_BUILD_VERSION_TITLE" />
+        <StandardBuildValue Include="Lepton.PackageType" EnvironmentVariable="LEPTON_PACKAGE_TYPE" />
+    </ItemGroup>
+</Project>

@@ -1,4 +1,54 @@
-﻿<Solution>
+<Solution>
+  <Folder Name="/Dependence/OvoUi/OvoUi.Demo/">
+    <File Path="src/ovoui.avalonia/src/Demo/Directory.Build.props" />
+    <Project Path="src/ovoui.avalonia/src/Demo/OvoUi.Demo.Desktop/OvoUi.Demo.Desktop.csproj" />
+    <Project Path="src/ovoui.avalonia/src/Demo/OvoUi.Demo/OvoUi.Demo.csproj" />
+  </Folder>
+  <Folder Name="/Dependence/OvoUi/">
+    <Project Path="src/ovoui.avalonia/src/OvoUi.AvaloniaEdit/OvoUi.AvaloniaEdit.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Fonts/OvoUi.Fonts.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Lang.Generator/OvoUi.Lang.Generator.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Lang/OvoUi.Lang.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Platform/OvoUi.Platform.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.SmoothScroll/OvoUi.SmoothScroll.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Tab/OvoUi.Tab.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi.Test/OvoUi.Test.csproj" />
+    <Project Path="src/ovoui.avalonia/src/OvoUi/OvoUi.csproj" />
+  </Folder>
+  <Folder Name="/Dependence/" />
+  <Folder Name="/Dependence/Holium/Build/">
+    <File Path="src/holium/src/Directory.Build.props" />
+    <File Path="src/holium/src/Directory.Packages.props" />
+    <File Path="src/holium/src/NativeAssets.targets" />
+  </Folder>
+  <Folder Name="/Dependence/Holium/">
+    <Project Path="src/holium/src/Holium.Bootstrap/Holium.Bootstrap.vcxproj" />
+    <Project Path="src/holium/src/Holium.Core.Windows/Holium.Core.Windows.csproj" />
+    <Project Path="src/holium/src/Holium.Core/Holium.Core.csproj" />
+    <Project Path="src/holium/src/Holium.Example/Holium.Example.csproj" />
+    <Project Path="src/holium/src/Holium.Hook/Holium.Hook.csproj" />
+    <Project Path="src/holium/src/Holium.Injector/Holium.Injector.vcxproj" />
+    <Project Path="src/holium/src/Holium.Linux/Holium.Linux.csproj" />
+    <Project Path="src/holium/src/Holium.PeNet/Holium.PeNet.csproj" />
+    <Project Path="src/holium/src/Holium.Preload/Holium.Preload.csproj" />
+    <Project Path="src/holium/src/Holium.Standard/Holium.Standard.csproj" />
+    <Project Path="src/holium/src/Holium.Tests/Holium.Tests.csproj" />
+    <Project Path="src/holium/src/Holium.Windows/Holium.Windows.csproj" />
+    <Project Path="src/holium/src/Holium.Xbox/Holium.Xbox.csproj" />
+    <Project Path="src/holium/src/Holium/Holium.csproj" />
+  </Folder>
+  <Folder Name="/Dependence/Ovo.DotNet/">
+    <Project Path="src/ovo.dotnet/src/Standard.Avalonia/Standard.Avalonia.csproj" />
+    <Project Path="src/ovo.dotnet/src/Standard.Mvvm/Standard.Mvvm.csproj" />
+    <Project Path="src/ovo.dotnet/src/Standard/Standard.csproj" />
+  </Folder>
   <Project Path="src/app/Lepton.Desktop/Lepton.Desktop.csproj" />
   <Project Path="src/app/Lepton/Lepton.csproj" />
+  <Folder Name="/Lepton.Cores/">
+    <Project Path="src/app/Lepton.Core.App/Lepton.Core.App.csproj" />
+  </Folder>
+  <Folder Name="/Lepton.Props/">
+    <File Path="src/app/Directory.Packages.props" />
+    <File Path="src/app/Lepton.Core.App/BuildValues.props" />
+  </Folder>
 </Solution>
