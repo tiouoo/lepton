@@ -4,11 +4,15 @@ namespace Lepton.Core.App.Runtime;
 
 public sealed class Context : ObservableObject
 {
+    private static DateTime _sessionTimestamp;
+    public static DateTime SessionTimestamp => _sessionTimestamp;
+
     private static Config _config = new();
 
     private Context()
     {
         _config.PropertyChanged += OnConfigPropertyChanged;
+        _sessionTimestamp = DateTime.Now;
     }
 
     public static Context Instance { get; } = new();
