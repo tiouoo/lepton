@@ -37,6 +37,7 @@ internal sealed class ConfigSaver : IDisposable
         if (_capturing) return;
         try
         {
+            Logger.Info("正在收集设置快照并准备保存");
             var json = CaptureSnapshot();
             lock (_sync) _pendingJson = json;
             _debouncer.Invoke();
@@ -50,6 +51,7 @@ internal sealed class ConfigSaver : IDisposable
     public void Flush()
     {
         if (_capturing) return;
+        Logger.Info("正在立即保存设置");
         var json = CaptureSnapshot();
         lock (_sync) _pendingJson = json;
         WritePending();
@@ -60,8 +62,13 @@ internal sealed class ConfigSaver : IDisposable
         _capturing = true;
         try
         {
-            ApplicationEvents.RaiseSaveSettings();
-            return Context.Config.ToJson();
+            string json = string.Empty;
+            StartupDiagnostics.Measure("收集并序列化设置快照", () =>
+            {
+                ApplicationEvents.RaiseSaveSettings();
+                json = Context.Config.ToJson();
+            });
+            return json;
         }
         finally
         {
@@ -76,7 +83,7 @@ internal sealed class ConfigSaver : IDisposable
             if (_pendingJson is null) return;
             try
             {
-                WriteAtomic(_path, _pendingJson);
+                StartupDiagnostics.Measure("写入设置文件", () => WriteAtomic(_path, _pendingJson));
                 _pendingJson = null;
                 SaveException = null;
             }
@@ -91,7 +98,7 @@ internal sealed class ConfigSaver : IDisposable
     private void ReportError(Exception exception)
     {
         SaveException = exception;
-        Logger.Error(exception);
+        Logger.Error($"设置保存失败，目标文件：{_path}", exception);
     }
 
     internal static void WriteAtomic(string path, string json)
