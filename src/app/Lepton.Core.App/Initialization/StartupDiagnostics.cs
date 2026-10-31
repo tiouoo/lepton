@@ -3,6 +3,7 @@ using Standard.Logging;
 
 namespace Lepton.Core.App.Initialization;
 
+[LogSourceHidden]
 public static class StartupDiagnostics
 {
     private static Stopwatch? _startupWatch;
@@ -24,6 +25,7 @@ public static class StartupDiagnostics
         Logger.Info($"主窗口已显示，从进程启动到窗口显示共耗时 {_entryDelayMilliseconds + watch.Elapsed.TotalMilliseconds:F2} 毫秒");
     }
 
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
     public static void Measure(string operation, Action action)
     {
         var watch = Stopwatch.StartNew();
