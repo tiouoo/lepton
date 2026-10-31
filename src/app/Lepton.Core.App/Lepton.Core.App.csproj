@@ -7,10 +7,15 @@
 
     <ItemGroup>
         <ProjectReference Include="../../ovo.dotnet/src/Standard/Standard.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi\OvoUi.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="BuildValues.props" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Mvvm" />
     </ItemGroup>
 
     <Import Project="BuildValues.props" />

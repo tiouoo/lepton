@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Lepton.ViewModels;
+namespace Lepton.Views.Models;
 
 public abstract class ViewModelBase : ObservableObject
 {
