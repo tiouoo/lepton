@@ -6,7 +6,7 @@
         xmlns:views="using:Lepton.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Lepton.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Lepton">
+        Icon="/icon.ico"
+        Title="Lepton Launcher">
         <views:MainView />
 </Window>

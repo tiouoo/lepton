@@ -1,0 +1,25 @@
+<Project>
+    <PropertyGroup>
+        <Authors>呆鱼鱼</Authors>
+        <Company>呆鱼鱼</Company>
+        <Copyright>Copyright © 2026 呆鱼鱼 &lt;https://tiouo.cc&gt;</Copyright>
+        <Product>Lepton Launcher</Product>
+        <Title>$(MSBuildProjectName)</Title>
+        <Description>Lepton Launcher - Minecraft Launcher for Java and Bedrock</Description>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/tiouoo/lepton</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/tiouoo/lepton</PackageProjectUrl>
+        <PackageLicenseFile>license</PackageLicenseFile>
+        <ApplicationIcon>$(MSBuildThisFileDirectory)../../assets/icon.ico</ApplicationIcon>
+        <Icon>$(MSBuildThisFileDirectory)../../assets/icon.ico</Icon>
+        <PackageIcon>$(MSBuildThisFileDirectory)../../assets/icon.ico</PackageIcon>
+        <AssemblyTitle>Lepton Launcher</AssemblyTitle>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AssemblyMetadata Include="AuthorWebsite" Value="https://tiouo.cc" />
+        <AssemblyMetadata Include="Authors" Value="$(Authors)" />
+        <None Include="$(MSBuildThisFileDirectory)../../license" Pack="true" PackagePath="/" Visible="false" />
+        <None Include="$(MSBuildThisFileDirectory)../../assets/icon.ico" Link="icon.ico" />
+    </ItemGroup>
+</Project>

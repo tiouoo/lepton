@@ -48,6 +48,7 @@
     <Project Path="src/app/Lepton.Core.App/Lepton.Core.App.csproj" />
   </Folder>
   <Folder Name="/Lepton.Props/">
+    <File Path="src/app/Directory.Build.props" />
     <File Path="src/app/Directory.Packages.props" />
     <File Path="src/app/Lepton.Core.App/BuildValues.props" />
   </Folder>

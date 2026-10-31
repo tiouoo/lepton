@@ -1,15 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <!--If you are willing to use platform-specific APIs, use conditional compilation.
-        See https://docs.avaloniaui.net/docs/guides/platforms/platform-specific-code/dotnet for more details.-->
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>
+        <Title>Lepton Launcher - Minecraft Launcher for Java and Bedrock</Title>
     </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="../../../assets/icon.ico" Link="icon.ico" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop"/>
