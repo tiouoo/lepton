@@ -1,41 +1,22 @@
-using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Lepton.Core.App.Runtime;
 
-public class Context : ObservableObject
+public sealed class Context : ObservableObject
 {
-    private static Context? _instance;
-    private static Config? _config;
+    private Context() { }
 
-    public static Context Instance
-    {
-        get { return _instance ??= new Context(); }
-    }
+    public static Context Instance { get; } = new();
 
-    public Context()
-    {
-        PropertyChanged += OnPropertyChanged;
-        _config.PropertyChanged += OnPropertyChanged;
-    }
-
-    private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-    }
+    public static UiProperty UiProperty { get; } = new();
 
     public static Config Config
     {
-        get => _config ?? throw new InvalidOperationException("Configuration has not been initialized.");
-        set
+        get => Volatile.Read(ref field);
+        internal set
         {
-            if (ReferenceEquals(_config, value)) return;
-            if (_instance is not null && _config is not null)
-                _config.PropertyChanged -= _instance.OnPropertyChanged;
-
-            _config = value;
-
-            if (_instance is not null)
-                _config.PropertyChanged += _instance.OnPropertyChanged;
+            ArgumentNullException.ThrowIfNull(value);
+            Volatile.Write(ref field, value);
         }
-    }
+    } = new();
 }
