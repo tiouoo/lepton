@@ -1,0 +1,12 @@
+[submodule "src/ovoui.avalonia"]
+	path = src/ovoui.avalonia
+	url = https://github.com/tiouoo/ovoui.avalonia.git
+	branch = main
+[submodule "src/ovo.dotnet"]
+	path = src/ovo.dotnet
+	url = https://github.com/tiouoo/ovo.dotnet.git
+	branch = main
+[submodule "src/holium"]
+	path = src/holium
+	url = https://github.com/tiouoo/holium.git
+	branch = main
