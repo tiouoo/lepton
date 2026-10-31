@@ -48,6 +48,13 @@ public sealed class InitializationWorkflow : IDisposable
     {
         Logger.Initialize(AppPaths.LogFolderPath, "Lepton Launcher", BuildInfo.Version, 10,false, () =>
         {
+            Logger.Append(@"  _               _                _                           _               ");
+            Logger.Append(@" | |    ___ _ __ | |_ ___  _ __   | |    __ _ _   _ _ __   ___| |__   ___ _ __ ");
+            Logger.Append(@" | |   / _ \ '_ \| __/ _ \| '_ \  | |   / _` | | | | '_ \ / __| '_ \ / _ \ '__|");
+            Logger.Append(@" | |__|  __/ |_) | || (_) | | | | | |__| (_| | |_| | | | | (__| | | |  __/ |   ");
+            Logger.Append(@" |_____\___| .__/ \__\___/|_| |_| |_____\__,_|\__,_|_| |_|\___|_| |_|\___|_|   ");
+            Logger.Append(@"           |_|                                                                 ");
+            Logger.Append(@"");
             Logger.Append($"Lepton 日志头 / {Context.SessionTimestamp:O}");
             Logger.Append($"    Lepton 版本: {BuildInfo.Version}");
             Logger.Append($"    操作系统: {Environment.OSVersion}");
@@ -71,7 +78,6 @@ public sealed class InitializationWorkflow : IDisposable
             Logger.Append($"    当前区域/语言: {System.Globalization.CultureInfo.CurrentCulture.Name}");
             Logger.Append($"    当前工作目录: {Environment.CurrentDirectory}");
             Logger.Append($"    命令行参数: {Environment.CommandLine}");
-            Logger.Append($"");
             Logger.Append($"");
         });
         
