@@ -11,6 +11,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi.Fonts\OvoUi.Fonts.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi.Lang.Generator\OvoUi.Lang.Generator.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi.Lang\OvoUi.Lang.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi.SmoothScroll\OvoUi.SmoothScroll.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi.Tab\OvoUi.Tab.csproj" />
+        <ProjectReference Include="..\..\ovoui.avalonia\src\OvoUi\OvoUi.csproj" />
         <ProjectReference Include="..\Lepton.Core.App\Lepton.Core.App.csproj" />
     </ItemGroup>
 

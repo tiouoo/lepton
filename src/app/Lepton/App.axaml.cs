@@ -20,23 +20,8 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainViewModel()
-            };
+            desktop.MainWindow = new LeptonWindow();
         }
-        else if (ApplicationLifetime is IActivityApplicationLifetime singleViewFactoryApplicationLifetime)
-        {
-            singleViewFactoryApplicationLifetime.MainViewFactory = () => new MainView { DataContext = new MainViewModel() };
-        }
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
-        {
-            singleViewPlatform.MainView = new MainView
-            {
-                DataContext = new MainViewModel()
-            };
-        }
-
         base.OnFrameworkInitializationCompleted();
     }
 }

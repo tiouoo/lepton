@@ -1,10 +1,13 @@
-<Application xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Lepton.App"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
+<Application
+    RequestedThemeVariant="Default"
+    x:Class="Lepton.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:ovo="https://github.com/tiouoo/ovoui.avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Styles>
-        <FluentTheme />
+        <ovo:OvoUiTheme Language="zh_cn" />
+        <ovo:OvoUiFont />
+        <ovo:OvoUiTabTheme />
+        <ovo:OvoCulturePicker />
     </Application.Styles>
 </Application>
