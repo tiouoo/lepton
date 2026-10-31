@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Lepton.ViewModels;
 using Lepton.Views;
 
 namespace Lepton;
@@ -20,7 +19,9 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new LeptonWindow();
+            var window = new LeptonWindow { IsPrimaryWindow = true };
+            window.AddTab(Services.TabService.CreateTab());
+            desktop.MainWindow = window;
         }
         base.OnFrameworkInitializationCompleted();
     }
