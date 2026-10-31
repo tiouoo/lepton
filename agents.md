@@ -1,4 +1,4 @@
-# AGENTS.md
+# AGENTS.md (CLAUDE.md)
 
 ## 提交与署名
 - 除非明确要求，否则禁止自行提交（commit）或推送（push）。禁止将 AI 助手自身信息加入作者、共同作者或合作者信息，包括 `Co-authored-by` 署名。
