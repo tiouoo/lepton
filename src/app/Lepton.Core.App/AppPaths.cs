@@ -2,22 +2,14 @@ namespace Lepton.Core.App;
 
 public sealed class AppPaths
 {
-    public const string DataDirectoryName = "lepton-launcher";
-    public const string ConfigFileName = "config.json";
-    public const string LogsDirectoryName = "Logs";
-    public const string CacheDirectoryName = "Cache";
+    public static string UserDataRootPath =>
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "lepton-launcher");
 
-    public AppPaths(string dataDirectory)
-    {
-        ArgumentException.ThrowIfNullOrWhiteSpace(dataDirectory);
-        DataDirectory = Path.GetFullPath(dataDirectory);
-    }
-
-    public static readonly string DefaultDataDirectory = Path.Combine(
-        AppContext.BaseDirectory, DataDirectoryName);
-
-    public string DataDirectory { get; }
-    public string ConfigFile => Path.Combine(DataDirectory, ConfigFileName);
-    public string LogsDirectory => Path.Combine(DataDirectory, LogsDirectoryName);
-    public string CacheDirectory => Path.Combine(DataDirectory, CacheDirectoryName);
+    public static string TempFolderPath => Path.Combine(UserDataRootPath, "temp");
+    public static string LogFolderPath => Path.Combine(UserDataRootPath, "logs");
+    public static string CacheFolderPath => Path.Combine(UserDataRootPath, "caches");
+    public static string UpdateFolderPath => Path.Combine(UserDataRootPath, "updates");
+    public static string ConfigDataPath => Path.Combine(UserDataRootPath, "config.lpt");
+    public static string AppPathDataPath => Path.Combine(UserDataRootPath, "app.lpt");
+    public static string DebugConsoleDataPath => Path.Combine(UserDataRootPath, "debugConsole.lpt");
 }

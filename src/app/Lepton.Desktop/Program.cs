@@ -11,7 +11,7 @@ sealed class Program
     public static void Main(string[] args)
     {
         using var initialization = new InitializationWorkflow();
-        initialization.Initialize(new AppPaths(AppPaths.DefaultDataDirectory));
+        initialization.Initialize();
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 

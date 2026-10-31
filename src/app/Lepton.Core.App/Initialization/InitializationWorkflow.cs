@@ -13,33 +13,31 @@ public sealed class InitializationWorkflow : IDisposable
 
     public Exception? SaveException => _configSaver?.SaveException;
     
-    public void Initialize(AppPaths paths, Action<Config>? checkConfiguration = null)
+    public void Initialize()
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
         if (_initialized) throw new InvalidOperationException("Startup has already been initialized.");
-        ArgumentNullException.ThrowIfNull(paths);
 
-        Directory.CreateDirectory(paths.DataDirectory);
-        Directory.CreateDirectory(paths.LogsDirectory);
-        Directory.CreateDirectory(paths.CacheDirectory);
-        Logger.Initialize(paths.LogsDirectory, "Lepton", BuildInfo.Version);
+        Directory.CreateDirectory(AppPaths.UserDataRootPath);
+        Directory.CreateDirectory(AppPaths.TempFolderPath);
+        Directory.CreateDirectory(AppPaths.LogFolderPath);
+        Directory.CreateDirectory(AppPaths.CacheFolderPath);
+        Logger.Initialize(AppPaths.LogFolderPath, "Lepton", BuildInfo.Version);
 
-        if (!File.Exists(paths.ConfigFile))
-            ConfigSaver.WriteAtomic(paths.ConfigFile, new Config().ToJson());
+        if (!File.Exists(AppPaths.ConfigDataPath))
+            ConfigSaver.WriteAtomic(AppPaths.ConfigDataPath, new Config().ToJson());
 
         InitializationEvents.RaiseBeforeSettingsLoad();
-        Context.Config.Initialize(paths.ConfigFile);
+        Context.Config.Initialize(AppPaths.ConfigDataPath);
         if (Context.Config.LoadException is { } loadException) Logger.Error(loadException);
         foreach (var (path, exception) in Context.Config.LoadErrors)
             Logger.Error($"{path}: {exception}");
-
-        checkConfiguration?.Invoke(Context.Config);
-
+        
         if (Context.Config.LoadException is not null || Context.Config.LoadErrors.Count > 0)
-            File.Copy(paths.ConfigFile, paths.ConfigFile + "." +
+            File.Copy(AppPaths.ConfigDataPath, AppPaths.ConfigDataPath + "." +
                 DateTime.UtcNow.ToString("yyyyMMddHHmmssfff") + "." + Guid.NewGuid().ToString("N") + ".bak");
 
-        _configSaver = new ConfigSaver(paths.ConfigFile);
+        _configSaver = new ConfigSaver(AppPaths.ConfigDataPath);
         _initialized = true;
         Context.UiProperty.IsInitialized = true;
         InitializationEvents.RaiseBeforeUiLoad();
