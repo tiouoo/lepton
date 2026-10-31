@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="src/app/Lepton.Desktop/Lepton.Desktop.csproj" />
+  <Project Path="src/app/Lepton/Lepton.csproj" />
+</Solution>
