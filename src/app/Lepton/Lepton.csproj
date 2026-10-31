@@ -30,4 +30,5 @@
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm"/>
     </ItemGroup>
+    
 </Project>
